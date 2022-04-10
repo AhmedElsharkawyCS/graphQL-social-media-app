@@ -1,0 +1,36 @@
+{
+  "name": "social-media-application",
+  "version": "1.0.0",
+  "description": "sample social-media application",
+  "author": {
+    "name": "Ahmed Elsharkawy",
+    "email": "ahmedelsharkawy.fcih@gmail.com",
+    "url": "https://www.linkedin.com/in/ahmed-elsharkawy-3684a5140/"
+  },
+  "scripts": {
+    "start": "node build/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+  },
+  "keywords": [
+    "graphql",
+    "javascript",
+    "apollo",
+    "reactJs",
+    "nodeJs",
+    "typescript"
+  ],
+  "homepage": "https://github.com/AhmedElsharkawyCS/qraphql-apps/blob/main/README.md",
+  "repository": {
+    "url": "https://github.com/AhmedElsharkawyCS/qraphql-apps",
+    "type": "git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^3.6.7",
+    "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  }
+}
