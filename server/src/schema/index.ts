@@ -4,14 +4,17 @@ const typeDefs = gql`
   type Query {
     post(id: Int!): Post
     posts: [Post!]!
-    me: User!
+    me: User
+    profile(userId: Int!): Profile
   }
 
   type Mutation {
     postCreate(post: PostCreateInput!): Post!
     postUpdate(id: Int!, post: PostUpdateInput!): Post!
     postDelete(id: Int!): Boolean!
-    login(user: AuthInput): UserContext!
+    postPublish(id: Int!): Post!
+    postUnPublish(id: Int!): Boolean!
+    login(user: AuthInput): LoginPayload!
     register(user: AuthInput): Boolean!
   }
 
@@ -20,7 +23,6 @@ const typeDefs = gql`
     name: String!
     email: String!
     posts: [Post!]!
-    profile: Profile!
     createdAt: String!
   }
 
@@ -40,10 +42,10 @@ const typeDefs = gql`
     createdAt: String!
   }
 
-  type UserContext {
+  type LoginPayload {
     token: String!
-    name: String!
     email: String!
+    name: String!
   }
 
   input PostCreateInput {
@@ -59,6 +61,7 @@ const typeDefs = gql`
   input AuthInput {
     password: String!
     email: String!
+    name: String
   }
 `
 export default typeDefs
