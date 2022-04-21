@@ -3,12 +3,16 @@ import { Post, Profile, User } from "@prisma/client"
 import { Context } from "../../types"
 
 export const Query = {
-  profile: async (parent: any, { userId }: { userId: number }, { prisma }: Context): Promise<Profile | null> => {
-    return await prisma.profile.findUnique({
-      where: {
-        userId: userId!,
-      },
+  profile: async (parent: any, { userId }: { userId: number }, { prisma, user }: Context): Promise<Profile | null> => {
+    const profile = await prisma.profile.findUnique({
+      where: { id: userId },
     })
+    if (!profile) return null
+    const userProfile: any = {
+      ...profile,
+      isMyProfile: user?.userId === userId,
+    }
+    return userProfile
   },
 
   me: async (parent: any, args: any, { prisma, user }: Context): Promise<User | null> => {

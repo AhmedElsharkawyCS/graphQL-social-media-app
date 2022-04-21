@@ -30,6 +30,7 @@ const typeDefs = gql`
     id: Int!
     bio: String!
     user: User!
+    isMyProfile: Boolean!
     createdAt: String!
   }
 

@@ -26,3 +26,12 @@
 - `start:server`: run server
 - `start:client`:run client,
 - `build`: build server application
+
+## TODO
+
+Integrate these features with apollo server
+
+- Add post
+- Publish/UnPublish post
+- Login
+- Register

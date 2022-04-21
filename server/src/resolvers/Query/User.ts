@@ -6,7 +6,7 @@ export const User = {
     const conditions: any = {
       userId: parent.id,
     }
-    if (user.userId !== parent.id) {
+    if (user?.userId !== parent.id) {
       conditions.published = true
     }
     return await prisma.post.findMany({
